@@ -11,14 +11,14 @@ class Groceries(db.Model):
 
 @app.route('/')
 def index():
-  return render_template('index.html')
+  groceries = Groceries.query.all()
+  return render_template('index.html', groceries=groceries)
 
 @app.route('/add', methods=['POST'])
 def add():
   item = Groceries(item=request.form['addItem'])
   db.session.add(item)
   db.session.commit()
-
   return redirect(url_for('index'))
 
 if __name__ == '__main__':

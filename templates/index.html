@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Grocery list</title>
+{% endblock %}
+
+{% block body %}
+<div>
+  <h1>Groceries</h1>
+  <div>
+    <form method='POST'>
+      <div class='addItem'>
+      <input class='addItemText' type='text' name='addItem' placeholder='Item Name'>
+      <input class='addItemButton' type='submit' value='Add Item'>
+      </div>
+      <div class='deleteItem'> 
+      <input class='deleteItemText' type='text' name='deleteItem' placeholder='Item Name'>
+      <input class='deleteItemButton' type='submit' value='Delete Item'>
+      </div>
+    </form>
+    </div>
+    
+    <div>
+      <ul>
+        {% for item in items %}
+        <li>{{ item.name }}</li>
+        {% endfor %}
+      </ul>
+      
+    </div>
+  
+
+
+</div>
+{% endblock %}

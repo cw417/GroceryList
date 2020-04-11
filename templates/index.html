@@ -7,7 +7,7 @@
 {% block body %}
 <div>
   <h1>Groceries</h1>
-  
+
   <div>
     <form action="{{ url_for('add') }}" method='POST'>
       <input class='addItemText' type='text' name='addItem' placeholder='Item Name'>
@@ -24,7 +24,7 @@
     </div>
 
     <div>
-      <form>
+      <form action="{{ url_for('clearList') }}" method='POST'>
         <input class='deleteItemButton' type='submit' value='Clear List'>
       </form>
     </div>

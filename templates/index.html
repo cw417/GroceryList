@@ -8,17 +8,20 @@
 <div>
   <h1>Groceries</h1>
   <div>
-    <form method='POST'>
-      <div class='addItem'>
+    <form action="{{ url_for('add') }}" method='POST'>
       <input class='addItemText' type='text' name='addItem' placeholder='Item Name'>
       <input class='addItemButton' type='submit' value='Add Item'>
-      </div>
+    </form>
+  </div>
+    
+  <div>
+    <form>
       <div class='deleteItem'> 
       <input class='deleteItemText' type='text' name='deleteItem' placeholder='Item Name'>
       <input class='deleteItemButton' type='submit' value='Delete Item'>
       </div>
     </form>
-    </div>
+  </div>
     
     <div>
       <ul>

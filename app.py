@@ -1,4 +1,4 @@
-from flask import Flask, flash, render_template, request, redirect
+from flask import Flask, flash, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -11,19 +11,15 @@ class Groceries(db.Model):
 
 @app.route('/')
 def index():
-  if request.method == 'POST':
-    new = request.form.get('item')
-    if new:
-      newItem = Groceries(name=new)
-      db.session.add(newItem)
-      db.session.commit()
+  return render_template('index.html')
 
-  query = Groceries.query.all()
-  items = []
-  #for item in query:
-    
+@app.route('/add', methods=['POST'])
+def add():
+  item = Groceries(item=request.form['addItem'])
+  db.session.add(item)
+  db.session.commit()
 
-  return render_template('index.html', items=items)
+  return redirect(url_for('index'))
 
 if __name__ == '__main__':
   app.run(debug=True)

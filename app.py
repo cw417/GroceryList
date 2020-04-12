@@ -19,7 +19,7 @@ def index():
 
 @app.route('/add', methods=['POST'])
 def add():
-  item = Groceries(item=request.form['addItem'], num=request.form['addNum'])
+  item = Groceries(item=request.form['addItem'].lower(), num=request.form['addNum'])
   db.session.add(item)
   db.session.commit()
   return redirect(url_for('index'))
@@ -35,7 +35,7 @@ def clearList():
 
 @app.route('/delete', methods=['POST'])
 def delete():
-  name = request.form['deleteItem']
+  name = request.form['deleteItem'].lower()
   conn = sqlite3.connect('groceries.db')
   cursor = conn.cursor().execute(f"DELETE FROM groceries WHERE item='{name}'")
   conn.commit()

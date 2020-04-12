@@ -22,12 +22,12 @@
     <table>
       <tr>
         <th class='numHeader'>Num</th>
-        <th>Item</th>
+        <th class='itemHeader'>Item</th>
       </tr>
       {% for item in groceries %}
-      <tr>
+      <tr class='tableData'>
         <td class='numData'>{{ item.num }}</td>
-        <td>{{ item.item }}</td>
+        <td class='nameData'>{{ item.item }}</td>
       </tr>
       {% endfor %}
     </table>

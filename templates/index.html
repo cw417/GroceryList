@@ -9,7 +9,7 @@
   <h1>Groceries</h1>
 
   <div>
-    <form action="{{ url_for('add') }}" method='POST'>
+    <form action='{{ url_for("add") }}' method='POST'>
       <input class='addItemText' type='text' name='addItem' placeholder='Item Name'>
       <div></div>
         <input class='addNumText' type='text' name='addNum' placeholder='Number'>
@@ -33,8 +33,15 @@
     </table>
   </div>
 
+  <div>
+    <form class='deleteItem' action='{{ url_for("delete") }}' method='POST'>
+      <input class='deleteItemText' type='text' name='deleteItem' placeholder='Delete Item'>
+      <input class='deleteButton' type='submit' value='Delete'>
+    </form>
+  </div>
+
     <div  class='clearList'>
-      <form class='deleteItemButton' action="{{ url_for('clearList') }}" method='POST'>
+      <form class='clearListButton' action="{{ url_for('clearList') }}" method='POST'>
         <input type='submit' value='Clear List'>
       </form>
     </div>

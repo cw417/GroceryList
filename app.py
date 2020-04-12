@@ -31,9 +31,16 @@ def clearList():
   cursor.execute('DELETE FROM groceries')
   conn.commit()
   conn.close()
-
   return redirect(url_for('index'))
 
-
+@app.route('/delete', methods=['POST'])
+def delete():
+  name = request.form['deleteItem']
+  conn = sqlite3.connect('groceries.db')
+  cursor = conn.cursor().execute(f"DELETE FROM groceries WHERE item='{name}'")
+  conn.commit()
+  conn.close()
+  return redirect(url_for('index'))
+  
 if __name__ == '__main__':
   app.run(host='0.0.0.0', port=5000)

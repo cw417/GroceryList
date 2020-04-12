@@ -11,24 +11,33 @@
   <div>
     <form action="{{ url_for('add') }}" method='POST'>
       <input class='addItemText' type='text' name='addItem' placeholder='Item Name'>
-      <input class='addItemButton' type='submit' value='Add Item'>
+      <div></div>
+        <input class='addNumText' type='text' name='addNum' placeholder='Number'>
+        <input class='addItemButton' type='submit' value='Add Item'>
+      </div>
     </form>
   </div>
-    
-    <div>
-      <ul>
-        {% for item in groceries %}
-        <li>{{ item.item }}</li>
-        {% endfor %}
-      </ul>
-    </div>
 
-    <div>
-      <form action="{{ url_for('clearList') }}" method='POST'>
-        <input class='deleteItemButton' type='submit' value='Clear List'>
+  <div>
+    <table>
+      <tr>
+        <th class='numHeader'>Num</th>
+        <th>Item</th>
+      </tr>
+      {% for item in groceries %}
+      <tr>
+        <td class='numData'>{{ item.num }}</td>
+        <td>{{ item.item }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+
+    <div  class='clearList'>
+      <form class='deleteItemButton' action="{{ url_for('clearList') }}" method='POST'>
+        <input type='submit' value='Clear List'>
       </form>
     </div>
-  
 
 
 </div>

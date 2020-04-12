@@ -10,6 +10,7 @@ db = SQLAlchemy(app)
 class Groceries(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   item = db.Column(db.String(50), nullable=False)
+  num = db.Column(db.Integer, default=1)
 
 @app.route('/')
 def index():
@@ -18,7 +19,7 @@ def index():
 
 @app.route('/add', methods=['POST'])
 def add():
-  item = Groceries(item=request.form['addItem'])
+  item = Groceries(item=request.form['addItem'], num=request.form['addNum'])
   db.session.add(item)
   db.session.commit()
   return redirect(url_for('index'))

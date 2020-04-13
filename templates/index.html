@@ -11,7 +11,7 @@
     <h1>Groceries</h1>
     <img src='static/images/groceries.png' class='groceriesImageRight' alt='grocery pic'>
   </div>
-  
+
   <div>
     <form class='addItem' action='{{ url_for("add") }}' method='POST'>
     <label>Add Item:</label>
@@ -22,6 +22,23 @@
             <input class='addItemButton' type='submit' value='Add'>
           </div>
       </div>
+    </form>
+  </div>
+
+  <div>
+    <form class='deleteItem' action='{{ url_for("delete") }}' method='POST'>
+      <label class='deleteItemLabel'>Delete Item:</label>
+      <div>
+        <input class='deleteItemText' type='text' name='deleteItem' placeholder='Item Name'>
+        <input class='deleteButton' type='submit' value='Delete'>
+      </div>
+    </form>
+  </div>
+
+  <div  class='clearList'>
+    <form class='clearListButton' action="{{ url_for('clearList') }}" method='POST'>
+      <label class='clearListLabel'>Clear List:</label>
+      <input type='submit' value='Clear'>
     </form>
   </div>
 
@@ -39,24 +56,7 @@
       {% endfor %}
     </table>
   </div>
-
-  <div>
-    <form class='deleteItem' action='{{ url_for("delete") }}' method='POST'>
-      <label class='deleteItemLabel'>Delete Item:</label>
-      <div>
-        <input class='deleteItemText' type='text' name='deleteItem' placeholder='Item Name'>
-        <input class='deleteButton' type='submit' value='Delete'>
-      </div>
-    </form>
-  </div>
-
-    <div  class='clearList'>
-      <form class='clearListButton' action="{{ url_for('clearList') }}" method='POST'>
-        <label class='clearListLabel'>Clear List:</label>
-        <input type='submit' value='Clear'>
-      </form>
-    </div>
-
+  
 
 </div>
 {% endblock %}

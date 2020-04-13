@@ -12,6 +12,14 @@ form {
     padding-top: 10px;
 }
 
+input {
+    border-radius: 5px;
+}
+
+input:focus {
+    border: 3px solid blue;
+}
+
 table {
     margin-left: auto;
     margin-right: auto;

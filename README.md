@@ -16,8 +16,8 @@ These steps will get GroceryList running on a local Flask server that can be acc
 ### Prerequisites
 - Python 3.6+
 - Python dependencies:
-    - flask
-    - flask-sqlalchemy
+    - Flask
+    - Flask-SQLAlchemy
 - SQLite 3
 
 ### Installing
@@ -28,12 +28,16 @@ These steps will get GroceryList running on a local Flask server that can be acc
 `https://sqlite.org/download.html`
 
 3. Create a database to store your data:
-`sqlite3 groceries.db`
-`.tables`
+```
+sqlite3 groceries.db`
+.tables
+```
 
 4. Create table data in sqlite3 database from class in "app.py":
-`from app import db`
-`db.create_all()`
+```
+from app import db
+db.create_all()
+```
 
 5. Run "app.py":
 `python3 app.py`

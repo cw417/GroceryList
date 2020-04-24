@@ -29,7 +29,7 @@ These steps will get GroceryList running on a local Flask server that can be acc
 
 3. Create a database to store your data:
 ```
-sqlite3 groceries.db`
+sqlite3 groceries.db
 .tables
 ```
 
